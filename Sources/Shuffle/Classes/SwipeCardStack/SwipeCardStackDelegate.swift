@@ -29,6 +29,9 @@ import UIKit
   @objc
   optional func cardStack(_ cardStack: SwipeCardStack, didSelectCardAt index: Int)
 
+   @objc
+    optional func cardStack(_ cardStack: SwipeCardStack, cardDidBeginSwipe: SwipeCard)
+  
   @objc
   optional func cardStack(_ cardStack: SwipeCardStack, didSwipeCardAt index: Int, with direction: SwipeDirection)
 
