@@ -461,6 +461,7 @@ open class SwipeCardStack: UIView, SwipeCardDelegate, UIGestureRecognizerDelegat
 
   func cardDidCancelSwipe(_ card: SwipeCard) {
     animator.animateReset(self, topCard: card)
+     delegate?.cardStack?(self, cardDidCancelSwipe: card)
   }
 
   func cardDidFinishSwipeAnimation(_ card: SwipeCard) {
