@@ -450,6 +450,7 @@ open class SwipeCardStack: UIView, SwipeCardDelegate, UIGestureRecognizerDelegat
 
   func cardDidBeginSwipe(_ card: SwipeCard) {
     animator.removeBackgroundCardAnimations(self)
+    delegate?.cardStack?(self, cardDidBeginSwipe: card)
   }
 
   func cardDidContinueSwipe(_ card: SwipeCard) {
