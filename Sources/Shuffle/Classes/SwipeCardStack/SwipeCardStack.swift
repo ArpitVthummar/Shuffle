@@ -453,7 +453,8 @@ open class SwipeCardStack: UIView, SwipeCardDelegate, UIGestureRecognizerDelegat
     delegate?.cardStack?(self, cardDidBeginSwipe: card)
   }
 
-  func cardDidContinueSwipe(_ card: SwipeCard) {
+   func cardDidContinueSwipe(_ card: SwipeCard) {
+      delegate?.cardDidContinueSwipe?(card)
     for (position, backgroundCard) in backgroundCards.enumerated() {
       backgroundCard.transform = backgroundCardDragTransform(topCard: card, currentPosition: position + 1)
     }
@@ -464,9 +465,10 @@ open class SwipeCardStack: UIView, SwipeCardDelegate, UIGestureRecognizerDelegat
      delegate?.cardStack?(self, cardDidCancelSwipe: card)
   }
 
-  func cardDidFinishSwipeAnimation(_ card: SwipeCard) {
-    card.removeFromSuperview()
-  }
+   func cardDidFinishSwipeAnimation(_ card: SwipeCard) {
+        card.removeFromSuperview()
+        delegate?.cardDidFinishSwipeAnimation?(card)
+    }
 
   func cardDidSwipe(_ card: SwipeCard, withDirection direction: SwipeDirection) {
     swipeAction(topCard: card, direction: direction, forced: false, animated: true)
